@@ -5,5 +5,6 @@ node{
   }
  stage('Build + SonarQube analysis'){
  dotnetClean()
+ dotnetBuild()
  }
 }
