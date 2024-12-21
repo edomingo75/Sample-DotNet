@@ -7,7 +7,7 @@ stage('Build + SonarQube analysis') {
  dotnetClean()
  dotnetBuild()
  def sqScannerMsBuildHome = tool 'SonarScanner-MSBuild'
-    withSonarQubeEnv() {
+    withSonarQubeEnv('Sonar-Server') {
       bat "${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe begin /k:myKey"
       bat "${sqScannerMsBuildHome}\\SonarScanner.MSBuild.exe end"
     }
